@@ -20,13 +20,11 @@ import ohos.aafwk.ability.Ability;
 import ohos.aafwk.content.Intent;
 import demo.apprate.enrique.com.appratedemo.slice.MainAbilitySlice;
 
-
+/**
+ * Main Ability that routes to the required slice.
+ */
 
 public class MainAbility extends Ability {
-     /** onStart.
-     *
-     * @param intent intent.
-     */
     @Override
     public void onStart(Intent intent) {
         super.onStart(intent);
