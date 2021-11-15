@@ -1,0 +1,65 @@
+<DirectionalLayout
+    xmlns:ohos="http://schemas.huawei.com/res/ohos"
+    ohos:height="match_content"
+    ohos:width="match_parent"
+    ohos:bottom_padding="24vp"
+    ohos:end_margin="10vp"
+    ohos:orientation="vertical"
+    ohos:start_margin="10vp"
+    ohos:top_padding="24vp">
+
+    <DirectionalLayout
+        ohos:id="$+id:titleFrame"
+        ohos:height="match_content"
+        ohos:width="match_parent"
+        ohos:alignment="vertical_center"
+        ohos:bottom_padding="12vp"
+        ohos:left_padding="10vp"
+        ohos:orientation="horizontal"
+        ohos:right_padding="24vp"
+        ohos:top_padding="24vp">
+
+        <Image
+            ohos:id="$+id:icon"
+            ohos:height="match_content"
+            ohos:width="match_content"
+            ohos:end_margin="16vp"
+            ohos:scale_mode="center"/>
+
+        <Text
+            ohos:id="$+id:title"
+            ohos:height="match_content"
+            ohos:width="match_parent"
+            ohos:multiple_lines="true"
+            ohos:text_font="bold"
+            ohos:text_size="30fp"/>
+    </DirectionalLayout>
+
+    <ScrollView
+        ohos:id="$+id:contentScrollView"
+        ohos:height="match_content"
+        ohos:width="match_parent"
+        ohos:bottom_padding="8vp"
+        ohos:top_padding="8vp">
+
+        <Text
+            ohos:id="$+id:content"
+            ohos:height="match_content"
+            ohos:width="match_parent"
+            ohos:left_padding="24vp"
+            ohos:multiple_lines="true"
+            ohos:right_padding="24vp"
+            ohos:text_size="24fp"/>
+    </ScrollView>
+
+    <DirectionalLayout
+        ohos:id="$+id:btnLayout"
+        ohos:height="match_content"
+        ohos:width="match_parent"
+        ohos:alignment="right"
+        ohos:bottom_padding="5vp"
+        ohos:orientation="vertical"
+        ohos:top_padding="5vp">
+
+    </DirectionalLayout>
+</DirectionalLayout>

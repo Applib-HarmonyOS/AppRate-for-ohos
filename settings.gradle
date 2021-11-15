@@ -1,1 +1,1 @@
-include ':AppRate-Demo', ':AppRate'
+include ':entry', ':app_module'
