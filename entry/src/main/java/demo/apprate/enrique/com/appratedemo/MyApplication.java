@@ -18,10 +18,11 @@ package demo.apprate.enrique.com.appratedemo;
 
 import ohos.aafwk.ability.AbilityPackage;
 
+/**
+ * Application class.
+ */
 public class MyApplication extends AbilityPackage {
-      /**
-     * onInitialize.
-     */
+    
     @Override
     public void onInitialize() {
         super.onInitialize();
