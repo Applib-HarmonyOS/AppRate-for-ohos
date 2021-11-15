@@ -16,9 +16,9 @@
 
 package demo.apprate.enrique.com.appratedemo;
 
-import demo.apprate.enrique.com.appratedemo.slice.MainAbilitySlice;
 import ohos.aafwk.ability.Ability;
 import ohos.aafwk.content.Intent;
+import demo.apprate.enrique.com.appratedemo.slice.MainAbilitySlice;
 
 
 
