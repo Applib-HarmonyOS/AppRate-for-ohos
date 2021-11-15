@@ -16,9 +16,9 @@ import com.hmos.compat.app.AlertDialog;
  */
 public class AppRater {
 
-    private static String appTitle = "YOUR-APPLICATION-TITLE";
+    private  String apptitlE = "YOUR-APPLICATION-TITLE";
 
-    private static String appPackageName = "YOUR-PACKAGE-NAME";
+    private String appPackageName = "YOUR-PACKAGE-NAME";
 
     private static final String APP_RATER = "apprater";
 
@@ -32,11 +32,12 @@ public class AppRater {
 
     private int launchesUntilPrompt = 7;
 
-    private static Context context;
+    private Context contexT;
+
 
     public AppRater(Context context) {
-        this.context = context;
-        this.appPackageName = context.getBundleName();
+        contexT = context;
+        appPackageName = context.getBundleName();
     }
 
     /** Init method.
@@ -44,13 +45,17 @@ public class AppRater {
      *
      *
      * @return Apprater object.
+     * @noinspection checkstyle:Indentation, checkstyle:Indentation
      */
     public AppRater init() {
-        DatabaseHelper databaseHelper = new DatabaseHelper(context);
+        DatabaseHelper databaseHelper = new DatabaseHelper(contexT);
+
+
         Preferences prefs = databaseHelper.getPreferences(APP_RATER);
         if (prefs.getBoolean(DONT_SHOW, false)) {
             return null;
         }
+
         Preferences editor = prefs;
         long launchcount = prefs.getLong(LAUNCH_COUNT, 0) + 1;
         editor.putLong(LAUNCH_COUNT, launchcount);
@@ -59,10 +64,10 @@ public class AppRater {
             datefirstLaunch = System.currentTimeMillis();
             editor.putLong(FIRST_LAUNCH, datefirstLaunch);
         }
-        if (launchcount >= launchesUntilPrompt) {
-            if (System.currentTimeMillis() >= datefirstLaunch + (daysUntilPrompt * 24 * 60 * 60 * 1000)) {
-                showRateDialog(context, editor);
-            }
+        if ((launchcount >= launchesUntilPrompt)
+                && (System.currentTimeMillis() >= datefirstLaunch + (daysUntilPrompt * 24 * 60 * 60 * 1000))) {
+            showRateDialog(contexT, editor);
+
         }
         editor.flushSync();
         return this;
@@ -79,8 +84,8 @@ public class AppRater {
 
     public AppRater showRateDialog(final Context mcontext, final Preferences editor) {
         AlertDialog.Builder builder = new AlertDialog.Builder(mcontext);
-        builder.setMessage(mcontext.getString(ResourceTable.String_dialog_text, appTitle));
-        builder.setTitle(mcontext.getString(ResourceTable.String_rate) + " " + appTitle);
+        builder.setMessage(mcontext.getString(ResourceTable.String_dialog_text, apptitlE));
+        builder.setTitle(mcontext.getString(ResourceTable.String_rate) + " " + apptitlE);
         builder.setNegativeButton(mcontext.getString(ResourceTable.String_no), new IDialog.ClickedListener() {
             @Override
             public void onClick(IDialog dialog, int id) {
@@ -128,7 +133,7 @@ public class AppRater {
     }
 
     public AppRater setAppTitle(String appTitle) {
-        AppRater.appTitle = appTitle;
+        apptitlE = appTitle;
         return this;
     }
 }
