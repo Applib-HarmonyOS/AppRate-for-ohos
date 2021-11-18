@@ -1,6 +1,5 @@
 package com.enrique.apprater;
 
-
 import ohos.aafwk.content.Intent;
 import ohos.aafwk.content.Operation;
 import ohos.agp.window.dialog.IDialog;
@@ -16,84 +15,67 @@ import com.hmos.compat.app.AlertDialog;
  */
 public class AppRater {
 
-    private  String apptitlE = "YOUR-APPLICATION-TITLE";
-
-    private String appPackageName = "YOUR-PACKAGE-NAME";
-
     private static final String APP_RATER = "apprater";
-
     private static final String DONT_SHOW = "dontshowagain";
-
     private static final String LAUNCH_COUNT = "launch_count";
-
     private static final String FIRST_LAUNCH = "date_firstlaunch";
-
+    private static final String URI = "https://appgallery.cloud.huawei.com/appDetail?pkgName=";
     private int daysUntilPrompt = 3;
-
     private int launchesUntilPrompt = 7;
-
-    private Context contexT;
-
+    private String appTitle = "YOUR-APPLICATION-TITLE";
+    private String appPackageName = "YOUR-PACKAGE-NAME";
+    private final Context mContext;
 
     public AppRater(Context context) {
-        contexT = context;
+        mContext = context;
         appPackageName = context.getBundleName();
     }
-
-    /** Init method.
-     *
-     *
+    /**
+     * Init method.
      *
      * @return Apprater object.
      * @noinspection checkstyle:Indentation, checkstyle:Indentation
      */
+
     public AppRater init() {
-        DatabaseHelper databaseHelper = new DatabaseHelper(contexT);
-
-
+        DatabaseHelper databaseHelper = new DatabaseHelper(mContext);
         Preferences prefs = databaseHelper.getPreferences(APP_RATER);
         if (prefs.getBoolean(DONT_SHOW, false)) {
             return null;
         }
-
-        Preferences editor = prefs;
         long launchcount = prefs.getLong(LAUNCH_COUNT, 0) + 1;
-        editor.putLong(LAUNCH_COUNT, launchcount);
+        prefs.putLong(LAUNCH_COUNT, launchcount);
         Long datefirstLaunch = prefs.getLong(FIRST_LAUNCH, 0);
         if (datefirstLaunch == 0) {
             datefirstLaunch = System.currentTimeMillis();
-            editor.putLong(FIRST_LAUNCH, datefirstLaunch);
+            prefs.putLong(FIRST_LAUNCH, datefirstLaunch);
         }
         if ((launchcount >= launchesUntilPrompt)
                 && (System.currentTimeMillis() >= datefirstLaunch + (daysUntilPrompt * 24 * 60 * 60 * 1000))) {
-            showRateDialog(contexT, editor);
-
+            showRateDialog(mContext, prefs);
         }
-        editor.flushSync();
+        prefs.flushSync();
         return this;
     }
 
-    /**  ShowrateDialog.
+    /**
+     * ShowrateDialog.
      *
-     *
-     * @param mcontext
-     *
+     * @param context context
      * @param editor Member variable of preferences
      * @return   AppraterObject.
      */
-
-    public AppRater showRateDialog(final Context mcontext, final Preferences editor) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(mcontext);
-        builder.setMessage(mcontext.getString(ResourceTable.String_dialog_text, apptitlE));
-        builder.setTitle(mcontext.getString(ResourceTable.String_rate) + " " + apptitlE);
-        builder.setNegativeButton(mcontext.getString(ResourceTable.String_no), new IDialog.ClickedListener() {
+    public AppRater showRateDialog(final Context context, final Preferences editor) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        builder.setMessage(context.getString(ResourceTable.String_dialog_text, appTitle));
+        builder.setTitle(context.getString(ResourceTable.String_rate) + " " + appTitle);
+        builder.setNegativeButton(context.getString(ResourceTable.String_no), new IDialog.ClickedListener() {
             @Override
             public void onClick(IDialog dialog, int id) {
                 dialog.destroy();
             }
         });
-
-        builder.setNeutralButton(mcontext.getString(ResourceTable.String_dontask), new IDialog.ClickedListener() {
+        builder.setNeutralButton(context.getString(ResourceTable.String_dontask), new IDialog.ClickedListener() {
             @Override
             public void onClick(IDialog dialog, int id) {
                 if (editor != null) {
@@ -103,20 +85,18 @@ public class AppRater {
                 dialog.destroy();
             }
         });
-
-        builder.setPositiveButton(mcontext.getString(ResourceTable.String_rate), new IDialog.ClickedListener() {
+        builder.setPositiveButton(context.getString(ResourceTable.String_rate), new IDialog.ClickedListener() {
             @Override
             public void onClick(IDialog dialog, int id) {
                 Intent intent = new Intent();
                 Operation operation = new Intent.OperationBuilder()
-                        .withUri(Uri.parse("https://appgallery.cloud.huawei.com/appDetail?pkgName=" + appPackageName))
+                        .withUri(Uri.parse(URI + appPackageName))
                         .build();
                 intent.setOperation(operation);
-                mcontext.startAbility(intent, AbilityInfo.AbilityType.WEB.ordinal());
+                context.startAbility(intent, AbilityInfo.AbilityType.WEB.ordinal());
                 dialog.destroy();
             }
         });
-
         IDialog dialog = builder.create();
         dialog.show();
         return this;
@@ -133,7 +113,7 @@ public class AppRater {
     }
 
     public AppRater setAppTitle(String appTitle) {
-        apptitlE = appTitle;
+        this.appTitle = appTitle;
         return this;
     }
 }

@@ -1,10 +1,11 @@
 /*
- * Copyright (C) 2021 Huawei Device Co., Ltd.
+ * Copyright (C) 2020-21 Application Library Engineering Group
+ *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *     http://www.apache.org/licenses/LICENSE-2.0
+ *      http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -14,7 +15,6 @@
  */
 
 package com.hmos.compat.app;
-
 
 import ohos.agp.components.Button;
 import ohos.agp.components.Component;
@@ -32,7 +32,6 @@ import com.enrique.apprater.ResourceTable;
  * AlertDialog.
  */
 public class AlertDialog extends CommonDialog implements IDialog {
-
     final Builder builder;
 
     private AlertDialog(Builder builder) {
@@ -109,13 +108,11 @@ public class AlertDialog extends CommonDialog implements IDialog {
             return this;
         }
 
-        /** SetPositiveButton.
-         *
+        /**
+         * SetPositiveButton.
          *
          * @param positiveButtonText pb.
-         *
          * @param listener listener
-         *
          * @return positive button.
          */
         public Builder setPositiveButton(String positiveButtonText, ClickedListener listener) {
@@ -129,12 +126,11 @@ public class AlertDialog extends CommonDialog implements IDialog {
             return this;
         }
 
-        /** neutral nb.
+        /**
+         * neutral nb.
          *
          * @param neutralButtonText  nb.
-         *
          * @param listener Member variable of preferences
-         *
          * @return AppraterObject.
          */
         public Builder setNeutralButton(String neutralButtonText, ClickedListener listener) {
@@ -148,12 +144,11 @@ public class AlertDialog extends CommonDialog implements IDialog {
             return this;
         }
 
-        /** Negative button.
+        /**
+         * Negative button.
          *
          * @param negativeButtonText nb.
-         *
          * @param listener listener
-         *
          * @return.
          */
         public Builder setNegativeButton(String negativeButtonText, ClickedListener listener) {
@@ -226,22 +221,15 @@ public class AlertDialog extends CommonDialog implements IDialog {
                 tvContent.setVisibility(Component.HIDE);
             }
         }
-
         prepareDialogViewButtonDy(rootLayout);
-
-
-
-
     }
 
-    /**  Negative button.
+    /**
+     * Negative button.
      *
      * @param root root.
-     *
-     * @param id   id
-     *
-     * @param <E>   E.
-     *
+     * @param id id
+     * @param <E> E.
      * @return returns.
      */
 

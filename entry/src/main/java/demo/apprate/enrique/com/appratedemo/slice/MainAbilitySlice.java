@@ -26,7 +26,6 @@ import demo.apprate.enrique.com.appratedemo.ResourceTable;
  * MainAbilitySlice.
  */
 public class MainAbilitySlice extends AbilitySlice {
-
     @Override
     public void onStart(Intent intent) {
         super.onStart(intent);
