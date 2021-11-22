@@ -1,5 +1,3 @@
-[![.github/workflows/main.yml](https://github.com/applibgroup/AppRate-for-ohos/actions/workflows/main.yml/badge.svg)](https://github.com/applibgroup/AppRate-for-ohos/actions/workflows/main.yml)
-
 # AppRate
 
 A HMOS library which provides AppRate animation
