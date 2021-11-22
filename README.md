@@ -8,7 +8,7 @@ Inspired by [kikoso/AppRate-for-Android](https://github.com/kikoso/AppRate-for-A
 
 ## Feature
 AppRate-for-HMOS is a library that allows users to rate application in a non intrusive way.
- A prompt with options like rate, no thanks and do not ask again is displayed according to your configuration.
+ A prompt with options like Do not ask again, No thanks and Rate is displayed.
 
 <img src="screenshots/Screenshot (2524).png" width="500">
 
