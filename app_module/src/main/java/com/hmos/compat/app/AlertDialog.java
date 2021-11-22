@@ -232,7 +232,6 @@ public class AlertDialog extends CommonDialog implements IDialog {
      * @param <E> E.
      * @return returns.
      */
-
     public static <E extends Component> E getComponent(Component root, int id) {
         if (root == null) {
             return null;

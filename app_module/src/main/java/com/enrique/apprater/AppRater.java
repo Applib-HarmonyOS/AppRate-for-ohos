@@ -14,29 +14,28 @@ import com.hmos.compat.app.AlertDialog;
  * AppRater Library.
  */
 public class AppRater {
-
     private static final String APP_RATER = "apprater";
     private static final String DONT_SHOW = "dontshowagain";
     private static final String LAUNCH_COUNT = "launch_count";
     private static final String FIRST_LAUNCH = "date_firstlaunch";
     private static final String URI = "https://appgallery.cloud.huawei.com/appDetail?pkgName=";
+    private final Context mContext;
     private int daysUntilPrompt = 3;
     private int launchesUntilPrompt = 7;
     private String appTitle = "YOUR-APPLICATION-TITLE";
     private String appPackageName = "YOUR-PACKAGE-NAME";
-    private final Context mContext;
 
     public AppRater(Context context) {
         mContext = context;
         appPackageName = context.getBundleName();
     }
+
     /**
      * Init method.
      *
      * @return Apprater object.
      * @noinspection checkstyle:Indentation, checkstyle:Indentation
      */
-
     public AppRater init() {
         DatabaseHelper databaseHelper = new DatabaseHelper(mContext);
         Preferences prefs = databaseHelper.getPreferences(APP_RATER);

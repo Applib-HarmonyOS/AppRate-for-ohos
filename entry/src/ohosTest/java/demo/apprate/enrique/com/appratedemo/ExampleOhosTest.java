@@ -60,5 +60,4 @@ public class ExampleOhosTest {
         assertNotNull(appRater.init());
     }
 
-
 }

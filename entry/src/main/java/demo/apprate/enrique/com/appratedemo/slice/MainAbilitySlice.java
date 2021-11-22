@@ -16,7 +16,6 @@
 
 package demo.apprate.enrique.com.appratedemo.slice;
 
-
 import ohos.aafwk.ability.AbilitySlice;
 import ohos.aafwk.content.Intent;
 import com.enrique.apprater.AppRater;

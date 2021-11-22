@@ -23,7 +23,6 @@ import demo.apprate.enrique.com.appratedemo.slice.MainAbilitySlice;
 /**
  * Main Ability that routes to the required slice.
  */
-
 public class MainAbility extends Ability {
     @Override
     public void onStart(Intent intent) {
