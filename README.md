@@ -32,7 +32,7 @@ AppRate-for-HMOS is a library that allows users to rate application in a non int
 ```
 
 ## Usage
-
+```
 super.onStart(intent);
         setUIContent(ResourceTable.Layout_ability_main);
         new AppRater(this)
