@@ -33,21 +33,6 @@ AppRate-for-HMOS is a library that allows users to rate application in a non int
 
 ## Usage
 
-#### Include following code in your layout:
-```xml
-<?xml version="1.0" encoding="utf-8"?>
-<DirectionalLayout
-    xmlns:ohos="http://schemas.huawei.com/res/ohos"
-    ohos:height="match_parent"
-    ohos:width="match_parent"
-    ohos:alignment="center"
-    ohos:orientation="vertical">
-
-</DirectionalLayout>
-```
-
-#### In code
-```
 super.onStart(intent);
         setUIContent(ResourceTable.Layout_ability_main);
         new AppRater(this)
