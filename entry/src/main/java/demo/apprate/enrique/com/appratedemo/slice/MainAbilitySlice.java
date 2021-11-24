@@ -36,4 +36,3 @@ public class MainAbilitySlice extends AbilitySlice {
                 .init();
     }
 }
-

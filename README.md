@@ -10,7 +10,7 @@ Inspired by [kikoso/AppRate-for-Android](https://github.com/kikoso/AppRate-for-A
 AppRate for Android is a library that allows your users to rate your application in a non intrusive way.
  A window with options to rate, remind later or reject is displayed according to your configuration.
 
-<img src="screenshots/Screenshot (2524).png" width="500">
+<img src="screenshots/Screenshot (2616).png" width="500">
 
 
 ## Dependency
@@ -32,19 +32,6 @@ AppRate for Android is a library that allows your users to rate your application
 ```
 
 ## Usage
-
-#### Include following code in your layout:
-```xml
-<?xml version="1.0" encoding="utf-8"?>
-<DirectionalLayout
-    xmlns:ohos="http://schemas.huawei.com/res/ohos"
-    ohos:height="match_parent"
-    ohos:width="match_parent"
-    ohos:alignment="center"
-    ohos:orientation="vertical">
-
-</DirectionalLayout>
-```
 
 #### In code
 ```

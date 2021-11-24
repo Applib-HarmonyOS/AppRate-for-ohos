@@ -6,7 +6,7 @@
     },
     {
       "name":"dialog_text",
-      "value": "If you enjoy using %1$s, please take a moment to rate it.Thanks for your support!"
+      "value": "If you enjoy using %1$s, please take a moment to rate it. Thanks for your support!"
     },
     {
       "name":"rate",
@@ -14,15 +14,15 @@
     },
     {
       "name":"remind",
-      "value": "Reming me later"
+      "value": "REMIND ME LATER"
     },
     {
       "name":"no",
-      "value": "No thanks"
+      "value": "NO THANKS"
     },
     {
       "name":"dontask",
-      "value": "Do not ask again"
+      "value": "DO NOT ASK AGAIN"
     }
   ]
 }

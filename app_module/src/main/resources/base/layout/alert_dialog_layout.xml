@@ -59,7 +59,7 @@
         ohos:alignment="right"
         ohos:bottom_padding="5vp"
         ohos:orientation="vertical"
+        ohos:right_padding="24vp"
         ohos:top_padding="5vp">
-
     </DirectionalLayout>
 </DirectionalLayout>

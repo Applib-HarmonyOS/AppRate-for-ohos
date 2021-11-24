@@ -2,6 +2,9 @@ package com.enrique.apprater;
 
 import ohos.aafwk.content.Intent;
 import ohos.aafwk.content.Operation;
+import ohos.agp.components.Button;
+import ohos.agp.components.Component;
+import ohos.agp.utils.Color;
 import ohos.agp.window.dialog.IDialog;
 import ohos.app.Context;
 import ohos.bundle.AbilityInfo;
@@ -68,34 +71,55 @@ public class AppRater {
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         builder.setMessage(context.getString(ResourceTable.String_dialog_text, appTitle));
         builder.setTitle(context.getString(ResourceTable.String_rate) + " " + appTitle);
-        builder.setNegativeButton(context.getString(ResourceTable.String_no), new IDialog.ClickedListener() {
+        Button negativeButton = new Button(context);
+        negativeButton.setText(context.getString(ResourceTable.String_no));
+        negativeButton.setClickedListener(new Component.ClickedListener() {
             @Override
-            public void onClick(IDialog dialog, int id) {
-                dialog.destroy();
+            public void onClick(Component component) {
+                builder.destroy();
             }
         });
-        builder.setNeutralButton(context.getString(ResourceTable.String_dontask), new IDialog.ClickedListener() {
+        negativeButton.setTextSize(40);
+        negativeButton.setTextColor(Color.BLUE);
+        negativeButton.setMarginBottom(50);
+
+        builder.setNegativeButton(negativeButton);
+        Button neutralButton = new Button(context);
+        neutralButton.setText(context.getString(ResourceTable.String_dontask));
+        neutralButton.setClickedListener(new Component.ClickedListener() {
             @Override
-            public void onClick(IDialog dialog, int id) {
+            public void onClick(Component component) {
                 if (editor != null) {
                     editor.putBoolean(DONT_SHOW, true);
                     editor.flushSync();
                 }
-                dialog.destroy();
+                builder.destroy();
             }
         });
-        builder.setPositiveButton(context.getString(ResourceTable.String_rate), new IDialog.ClickedListener() {
+        neutralButton.setTextSize(40);
+        neutralButton.setTextColor(Color.BLUE);
+        neutralButton.setMarginBottom(50);
+        builder.setNeutralButton(neutralButton);
+
+        Button positiveButton = new Button(context);
+        positiveButton.setText(context.getString(ResourceTable.String_rate).toUpperCase());
+        positiveButton.setClickedListener(new Component.ClickedListener() {
             @Override
-            public void onClick(IDialog dialog, int id) {
+            public void onClick(Component component) {
                 Intent intent = new Intent();
                 Operation operation = new Intent.OperationBuilder()
                         .withUri(Uri.parse(URI + appPackageName))
                         .build();
                 intent.setOperation(operation);
                 context.startAbility(intent, AbilityInfo.AbilityType.WEB.ordinal());
-                dialog.destroy();
+                builder.destroy();
             }
         });
+        positiveButton.setTextSize(40);
+        positiveButton.setTextColor(Color.BLUE);
+        positiveButton.setMarginBottom(50);
+        builder.setPositiveButton(positiveButton);
+
         IDialog dialog = builder.create();
         dialog.show();
         return this;

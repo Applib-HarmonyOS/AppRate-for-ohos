@@ -22,11 +22,16 @@ import ohos.agp.components.ComponentContainer;
 import ohos.agp.components.DirectionalLayout;
 import ohos.agp.components.LayoutScatter;
 import ohos.agp.components.Text;
+import ohos.agp.text.Font;
 import ohos.agp.utils.TextAlignment;
 import ohos.agp.window.dialog.CommonDialog;
 import ohos.agp.window.dialog.IDialog;
+import ohos.agp.window.service.DisplayAttributes;
+import ohos.agp.window.service.DisplayManager;
 import ohos.app.Context;
+import ohos.global.configuration.DeviceCapability;
 import com.enrique.apprater.ResourceTable;
+
 
 /**
  * AlertDialog.
@@ -157,13 +162,32 @@ public class AlertDialog extends CommonDialog implements IDialog {
             return this;
         }
 
+        /**
+         * create.
+         *
+         * @return alertdialog.
+         */
         public AlertDialog create() {
             alertDialog = new AlertDialog(this);
+            DisplayAttributes deviceCapability = DisplayManager.getInstance()
+                    .getDefaultDisplay(context).get().getAttributes();
+            int deviceType = context.getResourceManager().getDeviceCapability().deviceType;
+            if (deviceType == DeviceCapability.DEVICE_TYPE_PHONE || deviceType == DeviceCapability.DEVICE_TYPE_TABLET) {
+                alertDialog.setSize(deviceCapability.width - (int) (0.4 * deviceCapability.width),
+                        deviceCapability.height - (int) (0.68 * deviceCapability.height));
+            } else if (deviceType == DeviceCapability.DEVICE_TYPE_TV) {
+                alertDialog.setSize(deviceCapability.width - (int) (0.3 * deviceCapability.width),
+                        deviceCapability.height - (int) (0.35 * deviceCapability.height));
+            }
             return alertDialog;
         }
 
         public void show() {
             alertDialog.show();
+        }
+
+        public void destroy() {
+            alertDialog.destroy();
         }
     }
 
@@ -202,6 +226,7 @@ public class AlertDialog extends CommonDialog implements IDialog {
         // Setup title and title frame
         if (tvTitle != null) {
             tvTitle.setTextAlignment(TextAlignment.START);
+            tvTitle.setFont(Font.DEFAULT_BOLD);
             if (builder.title == null) {
                 if (titleFrame != null) {
                     titleFrame.setVisibility(Component.HIDE);
