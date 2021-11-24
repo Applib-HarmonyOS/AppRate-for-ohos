@@ -1,0 +1,25 @@
+{
+  "app": {
+    "bundleName": "com.enrique.apprater",
+    "vendor": "example",
+    "version": {
+      "code": 1000000,
+      "name": "1.0.0"
+    }
+  },
+  "deviceConfig": {
+  },
+  "module": {
+    "package": "com.enrique.apprater",
+    "deviceType": [
+      "phone",
+      "tablet",
+      "tv"
+    ],
+    "distro": {
+      "deliveryWithInstall": true,
+      "moduleName": "app_module",
+      "moduleType": "har"
+    }
+  }
+}

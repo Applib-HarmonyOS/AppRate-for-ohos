@@ -1,0 +1,30 @@
+{
+  "string": [
+    {
+      "name":"app_name",
+      "value": "AppRate"
+    },
+    {
+      "name":"dialog_text",
+      "value": "If you enjoy using %1$s, please take a moment to rate it. Thanks for your support!"
+    },
+    {
+      "name":"rate",
+      "value": "Rate"
+    },
+    {
+      "name":"remind",
+      "value": "REMIND ME LATER"
+    },
+    {
+      "name":"no",
+      "value": "NO THANKS"
+    },
+    {
+      "name":"dontask",
+      "value": "DO NOT ASK AGAIN"
+    }
+  ]
+}
+
+
