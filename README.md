@@ -7,8 +7,8 @@ A HMOS library which provides AppRate animation
 Inspired by [kikoso/AppRate-for-Android](https://github.com/kikoso/AppRate-for-Android) - version 1.0
 
 ## Feature
-AppRate for Android is a library that allows your users to rate your application in a non intrusive way.
- A window with options to rate, remind later or reject is displayed according to your configuration.
+AppRate-for-HMOS is a library that allows users to rate application in a non intrusive way.
+ A prompt with options like Do not ask again, No thanks and Rate is displayed.
 
 <img src="screenshots/Screenshot (2616).png" width="500">
 
