@@ -1,3 +1,6 @@
+[![.github/workflows/main.yml](https://github.com/applibgroup/AppRate-for-ohos/actions/workflows/main.yml/badge.svg)](https://github.com/applibgroup/AppRate-for-ohos/actions/workflows/main.yml)  [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=applibgroup_AppRate-for-HMOS&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=applibgroup_AppRate-for-HMOS)
+
+
 # AppRate
 
 A HMOS library which provides AppRate animation
@@ -14,7 +17,7 @@ AppRate-for-HMOS is a library that allows users to rate application in a non int
 
 
 ## Dependency
-1. For using apprater module in sample app, include the source code and add the below dependencies in entry/build.gradle to generate hap/support.har.
+1. For using apprate module in sample app, include the source code and add the below dependencies in entry/build.gradle to generate hap/support.har.
 ```groovy
     dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar', '*.har'])
@@ -23,12 +26,19 @@ AppRate-for-HMOS is a library that allows users to rate application in a non int
     ohosTestImplementation 'com.huawei.ohos.testkit:runner:1.0.0.100'
 }
 ```
-2. For using apprater in separate application using har file, add the har file in the entry/libs folder and add the dependencies in entry/build.gradle file.
+2. For using apprate in separate application using har file, add the har file in the entry/libs folder and add the dependencies in entry/build.gradle file.
 ```groovy
 	dependencies {
 		implementation fileTree(dir: 'libs', include: ['*.har'])
 		testImplementation 'junit:junit:4.13'
 	}
+```
+3. For using apprate from a remote repository in separate application, add the below dependencies in entry/build.gradle file.
+``` groovy
+         dependencies {
+	         implementation 'dev.applibgroup:apprateforohos:1.0.0'
+	         testCompile 'junit:junit:4.13'
+         }
 ```
 
 ## Usage
